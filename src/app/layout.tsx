@@ -1,27 +1,47 @@
 import type { Metadata, Viewport } from "next";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  themeColor: "#52765B",
 };
 
 export const metadata: Metadata = {
-  title: "MPASI SMART | Panduan & Edukasi Nutrisi MPASI Bayi 6–23 Bulan",
+  title: "MPASI SMART | Panduan MPASI untuk Si Kecil.",
   description:
-    "Platform edukasi Makanan Pendamping ASI (MPASI) terpercaya berbasis standar WHO (2023) dan Buku KIA Kemenkes RI (2024). Panduan tekstur, nutrisi, dan inspirasi menu terbaik untuk si kecil.",
+    "Platform edukasi dan panduan MPASI berdasarkan referensi kesehatan terpercaya.",
   keywords: [
     "MPASI",
-    "MPASI Bayi",
+    "MPASI SMART",
+    "Panduan MPASI",
+    "MPASI Bayi 6-23 Bulan",
     "Nutrisi Bayi",
     "Resep MPASI",
-    "WHO MPASI 2023",
+    "WHO 2023",
     "Buku KIA 2024",
     "Cegah Stunting",
-    "Makanan Pendamping ASI",
   ],
-  authors: [{ name: "Tim Pengembang MPASI SMART" }],
+  authors: [{ name: "Tim MPASI SMART" }],
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -30,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
-      <body className="bg-cream text-darkGreen font-body antialiased selection:bg-secondary selection:text-darkGreen min-h-screen flex flex-col">
+    <html lang="id" className={`${poppins.variable} ${inter.variable} scroll-smooth`}>
+      <body className="bg-cream text-darkGreen font-body antialiased selection:bg-secondary selection:text-darkGreen min-h-screen flex flex-col overflow-x-hidden">
         {children}
       </body>
     </html>
