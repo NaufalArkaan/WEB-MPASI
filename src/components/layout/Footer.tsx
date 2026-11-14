@@ -2,7 +2,7 @@
 
 import React from "react";
 import { 
-  Sparkles, 
+  Baby, 
   ArrowUp, 
   ShieldAlert, 
   ExternalLink, 
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
               aria-label="MPASI SMART - Kembali ke Beranda"
             >
               <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center text-white shadow-soft group-hover:bg-primary-400 transition-colors">
-                <Sparkles className="w-5 h-5 text-accent-200" />
+                <Baby className="w-5 h-5 text-accent-200" strokeWidth={2.2} aria-hidden="true" />
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-xl text-white tracking-tight leading-none">

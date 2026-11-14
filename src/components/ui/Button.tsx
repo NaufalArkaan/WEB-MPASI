@@ -1,9 +1,21 @@
 "use client";
 
 import React, { forwardRef } from "react";
+import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ButtonProps } from "@/types";
 
+/**
+ * Reusable Button Component for MPASI SMART Design System
+ * 
+ * Supports:
+ * - Variants: primary (#52765B), secondary (#A9C4A8), accent (#E8B88D), outline, ghost, cream (#F7F4EA)
+ * - Sizes: sm, md, lg
+ * - Dual mode: renders as <button> or <a> if `href` is provided
+ * - Loading state with spinner
+ * - Left and right icons with smooth hover transitions
+ * - Accessible focus rings & keyboard navigation
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -14,27 +26,33 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconLeft,
       iconRight,
       fullWidth = false,
+      isLoading = false,
       children,
       disabled,
       onClick,
+      type = "button",
       ...props
     },
     ref
   ) => {
+    const isDisabled = disabled || isLoading;
+
     const baseStyles =
       "inline-flex items-center justify-center font-heading font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed select-none active:scale-[0.98]";
 
     const variantStyles = {
       primary:
-        "bg-primary text-white hover:bg-primary-600 shadow-soft hover:shadow-soft-md active:bg-primary-700",
+        "bg-primary text-white hover:bg-primary-600 active:bg-primary-700 shadow-soft hover:shadow-soft-md",
       secondary:
-        "bg-secondary text-darkGreen hover:bg-secondary-600 shadow-soft hover:shadow-soft-md",
+        "bg-secondary text-darkGreen hover:bg-secondary-600 active:bg-secondary-700 shadow-soft hover:shadow-soft-md",
       accent:
-        "bg-accent text-darkGreen font-semibold hover:bg-accent-600 shadow-soft hover:shadow-soft-md",
+        "bg-accent text-darkGreen font-semibold hover:bg-accent-600 active:bg-accent-700 shadow-soft hover:shadow-soft-md",
       outline:
-        "border-2 border-primary text-primary hover:bg-primary/10 active:bg-primary/15",
+        "border-2 border-primary text-primary bg-transparent hover:bg-primary/10 active:bg-primary/15",
       ghost:
-        "text-primary hover:bg-primary/10 active:bg-primary/15",
+        "text-primary bg-transparent hover:bg-primary/10 active:bg-primary/15",
+      cream:
+        "bg-cream-100 text-darkGreen border border-primary/20 hover:bg-cream-200 active:bg-cream-300 shadow-soft",
     };
 
     const sizeStyles = {
@@ -51,13 +69,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className
     );
 
+    // If href is passed, render semantic <a> link CTA
     if (href) {
       return (
         <a
-          href={href}
+          href={isDisabled ? undefined : href}
           className={combinedClassName}
           onClick={(e) => {
-            if (disabled) {
+            if (isDisabled) {
               e.preventDefault();
               return;
             }
@@ -65,11 +84,21 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               onClick(e as unknown as React.MouseEvent<HTMLButtonElement>);
             }
           }}
-          aria-disabled={disabled}
+          aria-disabled={isDisabled}
+          role="button"
+          tabIndex={isDisabled ? -1 : 0}
         >
-          {iconLeft && <span className="inline-flex shrink-0">{iconLeft}</span>}
+          {isLoading ? (
+            <Loader2 className="w-4 h-4 animate-spin shrink-0" aria-hidden="true" />
+          ) : (
+            iconLeft && <span className="inline-flex shrink-0">{iconLeft}</span>
+          )}
           <span>{children}</span>
-          {iconRight && <span className="inline-flex shrink-0 transition-transform group-hover:translate-x-0.5">{iconRight}</span>}
+          {!isLoading && iconRight && (
+            <span className="inline-flex shrink-0 transition-transform group-hover:translate-x-0.5">
+              {iconRight}
+            </span>
+          )}
         </a>
       );
     }
@@ -77,15 +106,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        type="button"
-        disabled={disabled}
+        type={type}
+        disabled={isDisabled}
+        aria-busy={isLoading}
         className={combinedClassName}
         onClick={onClick}
         {...props}
       >
-        {iconLeft && <span className="inline-flex shrink-0">{iconLeft}</span>}
+        {isLoading ? (
+          <Loader2 className="w-4 h-4 animate-spin shrink-0" aria-hidden="true" />
+        ) : (
+          iconLeft && <span className="inline-flex shrink-0">{iconLeft}</span>
+        )}
         <span>{children}</span>
-        {iconRight && <span className="inline-flex shrink-0 transition-transform group-hover:translate-x-0.5">{iconRight}</span>}
+        {!isLoading && iconRight && (
+          <span className="inline-flex shrink-0 transition-transform group-hover:translate-x-0.5">
+            {iconRight}
+          </span>
+        )}
       </button>
     );
   }
@@ -93,4 +131,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 export default Button;
-

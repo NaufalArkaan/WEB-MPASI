@@ -3,6 +3,8 @@ export { Card, default as CardComponent } from "./Card";
 export { SectionHeading, default as SectionHeadingComponent } from "./SectionHeading";
 export { Modal, default as ModalComponent } from "./Modal";
 export { Badge, default as BadgeComponent } from "./Badge";
+export { SearchInput, default as SearchInputComponent } from "./SearchInput";
 export { SearchBar, default as SearchBarComponent } from "./SearchBar";
 export { Tabs, default as TabsComponent } from "./Tabs";
 export { Accordion, default as AccordionComponent } from "./Accordion";
+export { BackToTop, default as BackToTopComponent } from "./BackToTop";

@@ -12,7 +12,7 @@ export interface NavItem {
 // ==========================================
 // 2. UI COMPONENT PROPS (Syahrial & Shared)
 // ==========================================
-export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "accent";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "accent" | "cream";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -22,6 +22,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   fullWidth?: boolean;
+  isLoading?: boolean;
 }
 
 export interface SectionHeadingProps {
@@ -46,7 +47,13 @@ export interface ModalProps {
   title?: string;
   description?: string;
   children: ReactNode;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl";
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
+  className?: string;
+  showCloseButton?: boolean;
+  closeOnBackdrop?: boolean;
+  closeOnEscape?: boolean;
+  footer?: ReactNode;
+  ariaLabel?: string;
 }
 
 // Accordion Types
@@ -55,11 +62,14 @@ export interface AccordionItemData {
   title: string;
   content: ReactNode;
   category?: string;
+  icon?: ReactNode;
+  disabled?: boolean;
 }
 
 export interface AccordionProps {
   items: AccordionItemData[];
   defaultOpenId?: string;
+  defaultOpenIds?: string[];
   allowMultiple?: boolean;
   className?: string;
 }
@@ -74,15 +84,21 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   icon?: ReactNode;
 }
 
-// SearchBar Props
-export interface SearchBarProps {
+// SearchInput & SearchBar Props
+export interface SearchInputProps {
   value: string;
   onChange: (value: string) => void;
   onClear?: () => void;
   placeholder?: string;
   className?: string;
   id?: string;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  ariaLabel?: string;
+  size?: "sm" | "md" | "lg";
 }
+
+export type SearchBarProps = SearchInputProps;
 
 // Tabs Props
 export interface TabItem {
@@ -90,13 +106,30 @@ export interface TabItem {
   label: string;
   badge?: string | number;
   icon?: ReactNode;
+  content?: ReactNode;
+  disabled?: boolean;
 }
 
 export interface TabsProps {
   tabs: TabItem[];
-  activeTab: string;
-  onChange: (tabId: string) => void;
+  activeTab?: string;
+  defaultTab?: string;
+  onChange?: (tabId: string) => void;
   className?: string;
+  renderContent?: boolean;
+  variant?: "pills" | "underlined" | "cards";
+  fullWidth?: boolean;
+}
+
+// BackToTop Props
+export interface BackToTopProps {
+  threshold?: number;
+  smooth?: boolean;
+  className?: string;
+  ariaLabel?: string;
+  showLabel?: boolean;
+  label?: string;
+  bottomOffset?: string;
 }
 
 // ==========================================
