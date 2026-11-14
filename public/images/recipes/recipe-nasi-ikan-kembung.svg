@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-nasi-ikan-kembung" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF9ED"/>
+      <stop offset="100%" stop-color="#EBE3C7"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-nasi-ikan-kembung)"/>
+  <circle cx="45" cy="40" r="65" fill="#F2D06B" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Shadow -->
+      <ellipse cx="200" cy="180" rx="90" ry="18" fill="#52765B" opacity="0.12"/>
+      <!-- Serving Platter -->
+      <ellipse cx="200" cy="155" rx="85" ry="24" fill="#DFEBE0" stroke="#52765B" stroke-width="3"/>
+      <!-- Yellow turmeric fish dish -->
+      <ellipse cx="200" cy="150" rx="75" ry="18" fill="#F2D06B"/>
+      <!-- Mackerel fillet silhouette -->
+      <path d="M150 135 C175 118 225 118 250 135 C225 152 175 152 150 135 Z" fill="#FAF7F1" stroke="#52765B" stroke-width="3"/>
+      <path d="M250 135 L265 124 L260 135 L265 146 Z" fill="#52765B"/>
+      <circle cx="166" cy="133" r="3" fill="#26352B"/>
+      <path d="M185 127 Q195 135 185 143" stroke="#52765B" stroke-width="2" fill="none"/>
+      <path d="M205 127 Q215 135 205 143" stroke="#52765B" stroke-width="2" fill="none"/>
+      <!-- Lemongrass stalk & tomato wedges -->
+      <rect x="175" y="110" width="45" height="5" rx="2" fill="#8EAE8D" transform="rotate(-15 175 110)"/>
+      <circle cx="230" cy="142" r="6" fill="#C47C42"/>
+  </g>
+</svg>

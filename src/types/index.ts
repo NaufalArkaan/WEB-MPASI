@@ -190,6 +190,7 @@ export interface RecipeNutrition {
   iron?: string;
   fat?: string;
   carbs?: string;
+  note?: string;
 }
 
 // Recipe Data (Robi)
@@ -202,7 +203,7 @@ export interface Recipe {
   texture: string;
   duration: string;
   portion: string;
-  description?: string;
+  description: string;
   ingredients: string[];
   instructions: string[];
   allergens: string[];

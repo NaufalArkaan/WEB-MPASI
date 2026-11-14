@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-nasi-tim-ikan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4F8F6"/>
+      <stop offset="100%" stop-color="#DCEDE1"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-nasi-tim-ikan)"/>
+  <circle cx="45" cy="40" r="65" fill="#E8B88D" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Steam -->
+      <path d="M195 55 Q205 40 195 25" stroke="#709370" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <!-- Shadow -->
+      <ellipse cx="200" cy="180" rx="90" ry="18" fill="#52765B" opacity="0.12"/>
+      <!-- Bowl -->
+      <path d="M125 115 C125 175, 275 175, 275 115 Z" fill="#FFFFFF" stroke="#52765B" stroke-width="4"/>
+      <ellipse cx="200" cy="115" rx="75" ry="22" fill="#EFF5EF" stroke="#52765B" stroke-width="3"/>
+      <!-- Salmon flakes -->
+      <ellipse cx="175" cy="108" rx="15" ry="7" fill="#F0CDB0" stroke="#E8B88D" stroke-width="1.5"/>
+      <ellipse cx="220" cy="108" rx="15" ry="7" fill="#F0CDB0" stroke="#E8B88D" stroke-width="1.5"/>
+      <ellipse cx="198" cy="116" rx="14" ry="6" fill="#F0CDB0" stroke="#E8B88D" stroke-width="1.5"/>
+      <!-- Corn kernels -->
+      <circle cx="160" cy="115" r="4.5" fill="#F2D06B"/>
+      <circle cx="188" cy="115" r="4.5" fill="#F2D06B"/>
+      <circle cx="218" cy="116" r="4.5" fill="#F2D06B"/>
+      <circle cx="238" cy="112" r="4" fill="#F2D06B"/>
+      <!-- Spinach ribbons -->
+      <path d="M170 102 Q180 98 185 106" stroke="#52765B" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M205 104 Q215 100 220 108" stroke="#52765B" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Foot -->
+      <path d="M165 168 L235 168 L230 178 L170 178 Z" fill="#52765B"/>
+  </g>
+</svg>

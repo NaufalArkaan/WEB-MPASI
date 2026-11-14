@@ -5,18 +5,17 @@ import {
   HeartHandshake, 
   Baby, 
   Clock, 
-  ShieldAlert, 
-  CheckCircle2, 
   Sparkles, 
   Utensils, 
   BookOpen, 
   Flame, 
   Brain,
-  ChevronRight,
+  CheckCircle2,
   Info
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
+import EnergyPortionDiagram from "@/components/ui/EnergyPortionDiagram";
 import { cn } from "@/lib/utils";
 
 interface AboutTopic {
@@ -180,7 +179,7 @@ export const AboutMPASI: React.FC = () => {
   const currentTopic = ABOUT_TOPICS.find((t) => t.id === activeTab) || ABOUT_TOPICS[0];
 
   return (
-    <section id="about" className="py-16 sm:py-24 bg-cream/50 relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 bg-cream/50 relative overflow-hidden scroll-mt-24">
       {/* Decorative background accents */}
       <div 
         className="absolute top-0 right-10 w-96 h-96 bg-secondary-100/30 rounded-full blur-3xl pointer-events-none -z-10" 
@@ -202,22 +201,42 @@ export const AboutMPASI: React.FC = () => {
         />
 
         {/* Interactive Topic Navigation Tabs */}
-        <div className="flex items-center justify-start sm:justify-center overflow-x-auto pb-4 mb-8 sm:mb-12 gap-2 no-scrollbar">
-          {ABOUT_TOPICS.map((topic) => {
+        <div 
+          role="tablist"
+          aria-label="Topik Dasar Edukasi MPASI"
+          className="flex items-center justify-start sm:justify-center overflow-x-auto pb-4 mb-8 sm:mb-12 gap-2 scrollbar-none"
+        >
+          {ABOUT_TOPICS.map((topic, index) => {
             const isActive = topic.id === activeTab;
             return (
               <button
                 key={topic.id}
+                id={`about-tab-${topic.id}`}
                 type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls="about-content-panel"
+                tabIndex={isActive ? 0 : -1}
                 onClick={() => setActiveTab(topic.id)}
+                onKeyDown={(e) => {
+                  let nextIndex = index;
+                  if (e.key === "ArrowRight") nextIndex = (index + 1) % ABOUT_TOPICS.length;
+                  else if (e.key === "ArrowLeft") nextIndex = (index - 1 + ABOUT_TOPICS.length) % ABOUT_TOPICS.length;
+                  else if (e.key === "Home") nextIndex = 0;
+                  else if (e.key === "End") nextIndex = ABOUT_TOPICS.length - 1;
+                  else return;
+
+                  e.preventDefault();
+                  const nextTopic = ABOUT_TOPICS[nextIndex];
+                  setActiveTab(nextTopic.id);
+                  document.getElementById(`about-tab-${nextTopic.id}`)?.focus();
+                }}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-heading font-medium whitespace-nowrap transition-all duration-200 shrink-0",
+                  "flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-heading font-medium whitespace-nowrap transition-all duration-200 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                   isActive
-                    ? "bg-primary text-white shadow-soft-md scale-[1.02]"
+                    ? "bg-primary text-white shadow-soft-md scale-[1.02] font-semibold"
                     : "bg-white text-darkGreen-400 hover:text-darkGreen hover:bg-white/80 border border-primary/10 shadow-sm"
                 )}
-                aria-selected={isActive}
-                role="tab"
               >
                 <span className={cn(isActive ? "text-accent-200" : "text-primary")}>
                   {topic.icon}
@@ -229,7 +248,13 @@ export const AboutMPASI: React.FC = () => {
         </div>
 
         {/* Editorial Feature Showcase Box for Active Topic */}
-        <div className="bg-white rounded-3xl border border-primary/15 shadow-card p-6 sm:p-10 transition-all duration-300">
+        <div 
+          id="about-content-panel"
+          role="tabpanel"
+          aria-labelledby={`about-tab-${currentTopic.id}`}
+          key={currentTopic.id}
+          className="bg-white rounded-3xl border border-primary/15 shadow-card p-6 sm:p-10 transition-all duration-300 animate-fade-in"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Content Column */}
             <div className="lg:col-span-7 flex flex-col">
@@ -277,69 +302,8 @@ export const AboutMPASI: React.FC = () => {
 
             {/* Right Column: Visual Infographic Breakdown */}
             <div className="lg:col-span-5 flex flex-col gap-4">
-              {/* Energy Contribution Card */}
-              <Card variant="accent" padding="md" rounded="3xl">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <Flame className="w-5 h-5 text-accent-700" />
-                    <span className="font-heading font-bold text-sm text-darkGreen">
-                      Porsi Energi: ASI vs MPASI
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-semibold text-primary uppercase tracking-wider bg-white px-2 py-0.5 rounded-full border border-primary/10">
-                    WHO 2023
-                  </span>
-                </div>
-
-                <div className="space-y-4 text-xs font-body">
-                  {/* 6-8 Bulan */}
-                  <div>
-                    <div className="flex justify-between font-heading font-medium text-darkGreen mb-1.5">
-                      <span>Usia 6–8 Bulan</span>
-                      <span className="text-primary font-bold">ASI 70% • MPASI 30%</span>
-                    </div>
-                    <div className="w-full h-3 bg-secondary-100 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-primary rounded-l-full" style={{ width: "70%" }} title="ASI 70%" />
-                      <div className="h-full bg-accent rounded-r-full" style={{ width: "30%" }} title="MPASI 30%" />
-                    </div>
-                  </div>
-
-                  {/* 9-11 Bulan */}
-                  <div>
-                    <div className="flex justify-between font-heading font-medium text-darkGreen mb-1.5">
-                      <span>Usia 9–11 Bulan</span>
-                      <span className="text-primary font-bold">ASI 50% • MPASI 50%</span>
-                    </div>
-                    <div className="w-full h-3 bg-secondary-100 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-primary rounded-l-full" style={{ width: "50%" }} title="ASI 50%" />
-                      <div className="h-full bg-accent rounded-r-full" style={{ width: "50%" }} title="MPASI 50%" />
-                    </div>
-                  </div>
-
-                  {/* 12-23 Bulan */}
-                  <div>
-                    <div className="flex justify-between font-heading font-medium text-darkGreen mb-1.5">
-                      <span>Usia 12–23 Bulan</span>
-                      <span className="text-primary font-bold">ASI 30% • MPASI 70%</span>
-                    </div>
-                    <div className="w-full h-3 bg-secondary-100 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-primary rounded-l-full" style={{ width: "30%" }} title="ASI 30%" />
-                      <div className="h-full bg-accent rounded-r-full" style={{ width: "70%" }} title="MPASI 70%" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-accent/20 flex items-center justify-between text-[11px] text-darkGreen-300">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block" />
-                    <span>ASI Lanjut</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-accent inline-block" />
-                    <span>Makanan Pendamping</span>
-                  </div>
-                </div>
-              </Card>
+              {/* Energy Contribution Card with Viewport Animation */}
+              <EnergyPortionDiagram />
 
               {/* Key Takeaway Box */}
               <div className="p-5 rounded-3xl bg-secondary-50 border border-secondary/30 flex items-start gap-3.5">
@@ -397,4 +361,3 @@ export const AboutMPASI: React.FC = () => {
 };
 
 export default AboutMPASI;
-

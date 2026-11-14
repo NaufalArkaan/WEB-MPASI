@@ -36,7 +36,7 @@ export default function References() {
     <section
       id="references"
       aria-label="Referensi edukasi MPASI"
-      className="border-t border-primary/10 bg-white py-16 sm:py-24"
+      className="border-t border-primary/10 bg-white py-16 sm:py-24 scroll-mt-24"
     >
       <div className="container-custom">
         <SectionHeading

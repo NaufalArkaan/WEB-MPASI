@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-nasi-ayam-sayur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6FBF7"/>
+      <stop offset="100%" stop-color="#DEEFE2"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-nasi-ayam-sayur)"/>
+  <circle cx="45" cy="40" r="65" fill="#E8B88D" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Steam -->
+      <path d="M190 55 Q200 40 190 25" stroke="#709370" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <path d="M210 50 Q220 35 210 20" stroke="#709370" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+      <!-- Shadow -->
+      <ellipse cx="200" cy="180" rx="95" ry="18" fill="#52765B" opacity="0.12"/>
+      <!-- Soup Bowl -->
+      <path d="M120 115 C120 180, 280 180, 280 115 Z" fill="#FFFFFF" stroke="#52765B" stroke-width="4"/>
+      <ellipse cx="200" cy="115" rx="80" ry="24" fill="#EFF5EF" stroke="#52765B" stroke-width="3"/>
+      <!-- Golden broth -->
+      <ellipse cx="200" cy="115" rx="72" ry="18" fill="#F4EFE2"/>
+      <!-- Chicken pieces -->
+      <rect x="155" y="106" width="14" height="12" rx="3" fill="#E8B88D" stroke="#D99965" stroke-width="1.5"/>
+      <rect x="225" y="108" width="14" height="12" rx="3" fill="#E8B88D" stroke="#D99965" stroke-width="1.5"/>
+      <!-- Carrot wheels -->
+      <circle cx="185" cy="112" r="9" fill="#D99965" stroke="#C47C42" stroke-width="1.5"/>
+      <!-- Potato cubes -->
+      <rect x="202" y="108" width="12" height="12" rx="2" fill="#FAF7F1" stroke="#EDE5CF" stroke-width="1.5"/>
+      <!-- Green beans (buncis) slices -->
+      <ellipse cx="170" cy="120" rx="6" ry="3.5" fill="#52765B"/>
+      <ellipse cx="218" cy="122" rx="6" ry="3.5" fill="#52765B"/>
+      <!-- Celery leaf -->
+      <path d="M198 120 Q202 116 205 122" stroke="#52765B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <!-- Foot -->
+      <path d="M165 168 L235 168 L230 178 L170 178 Z" fill="#52765B"/>
+  </g>
+</svg>

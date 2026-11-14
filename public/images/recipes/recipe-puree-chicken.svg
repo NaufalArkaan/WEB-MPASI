@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-bubur-ayam-wortel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF7ED"/>
+      <stop offset="100%" stop-color="#EAEFE6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-bubur-ayam-wortel)"/>
+  <circle cx="45" cy="40" r="65" fill="#E8B88D" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Steam -->
+      <path d="M185 65 Q195 50 185 35" stroke="#A9C4A8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M200 60 Q210 45 200 30" stroke="#A9C4A8" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <path d="M215 65 Q225 50 215 35" stroke="#A9C4A8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <!-- Spoon -->
+      <path d="M255 75 Q285 55 315 95 L270 115 Z" fill="#C7DACB" stroke="#52765B" stroke-width="3"/>
+      <!-- Bowl base shadow -->
+      <ellipse cx="200" cy="180" rx="85" ry="18" fill="#52765B" opacity="0.12"/>
+      <!-- Bowl outer -->
+      <path d="M120 110 C120 175, 280 175, 280 110 Z" fill="#FFFFFF" stroke="#52765B" stroke-width="4"/>
+      <!-- Bowl rim -->
+      <ellipse cx="200" cy="110" rx="80" ry="24" fill="#F4EFE2" stroke="#52765B" stroke-width="3"/>
+      <!-- Porridge surface -->
+      <ellipse cx="200" cy="112" rx="72" ry="18" fill="#F6E0CD"/>
+      <!-- Carrot dice & chicken shreds -->
+      <rect x="165" y="106" width="10" height="10" rx="2" fill="#D99965"/>
+      <rect x="185" y="103" width="9" height="9" rx="2" fill="#D99965"/>
+      <rect x="220" y="107" width="11" height="11" rx="2" fill="#D99965"/>
+      <ellipse cx="178" cy="114" rx="14" ry="4" fill="#FAF7F1"/>
+      <ellipse cx="205" cy="110" rx="12" ry="4" fill="#FAF7F1"/>
+      <circle cx="198" cy="117" r="3.5" fill="#52765B"/>
+      <circle cx="214" cy="115" r="3" fill="#52765B"/>
+      <circle cx="170" cy="118" r="3" fill="#52765B"/>
+      <!-- Bowl foot -->
+      <path d="M165 168 L235 168 L230 178 L170 178 Z" fill="#52765B"/>
+  </g>
+</svg>

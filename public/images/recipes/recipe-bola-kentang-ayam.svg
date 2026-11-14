@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-bola-kentang-ayam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF8F2"/>
+      <stop offset="100%" stop-color="#EFE5D3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-bola-kentang-ayam)"/>
+  <circle cx="45" cy="40" r="65" fill="#E8B88D" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Plate shadow -->
+      <ellipse cx="200" cy="180" rx="95" ry="20" fill="#52765B" opacity="0.12"/>
+      <!-- Wooden/Ceramic platter -->
+      <ellipse cx="200" cy="170" rx="95" ry="26" fill="#DFEBE0" stroke="#52765B" stroke-width="3"/>
+      <ellipse cx="200" cy="167" rx="85" ry="20" fill="#FFFFFF"/>
+      <!-- 3 Finger Food Croquettes / Potato Balls -->
+      <!-- Left Ball -->
+      <ellipse cx="155" cy="140" rx="26" ry="22" fill="#E8B88D" stroke="#52765B" stroke-width="3"/>
+      <circle cx="150" cy="135" r="2.5" fill="#52765B"/>
+      <circle cx="160" cy="142" r="2.5" fill="#D99965"/>
+      <!-- Right Ball -->
+      <ellipse cx="245" cy="140" rx="26" ry="22" fill="#E8B88D" stroke="#52765B" stroke-width="3"/>
+      <circle cx="240" cy="135" r="2.5" fill="#52765B"/>
+      <circle cx="250" cy="142" r="2.5" fill="#D99965"/>
+      <!-- Center Finger Food (Raised) -->
+      <ellipse cx="200" cy="125" rx="30" ry="25" fill="#F6E0CD" stroke="#52765B" stroke-width="3.5"/>
+      <!-- Cheese Melt Drizzle -->
+      <path d="M185 120 Q195 110 205 122 Q215 115 220 125" stroke="#F2D06B" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <circle cx="192" cy="128" r="2.5" fill="#52765B"/>
+      <circle cx="208" cy="132" r="2.5" fill="#D99965"/>
+  </g>
+</svg>

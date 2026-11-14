@@ -28,8 +28,20 @@ const NAV_ITEMS: (NavItem & { icon: React.ReactNode })[] = [
 ];
 
 export const Navbar: React.FC = () => {
-  const { scrolled, activeSection } = useScroll(20);
+  const { scrolled, activeSection, scrollToSection } = useScroll(20);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Handle URL hash on initial page load (e.g. /#recipes)
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hashId = window.location.hash.replace("#", "");
+      // Slight timeout to ensure full DOM layout is computed
+      const timer = setTimeout(() => {
+        scrollToSection(hashId, false);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [scrollToSection]);
 
   // Close mobile menu when screen resizes to desktop
   useEffect(() => {
@@ -68,29 +80,18 @@ export const Navbar: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-
     const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-    if (element) {
-      const navOffset = 84;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+    scrollToSection(targetId, true);
   };
 
   return (
     <>
       <header
         className={cn(
-          "sticky top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
+          "sticky top-0 left-0 right-0 z-40 transition-all duration-300 w-full",
           scrolled
             ? "glass-navbar py-3 shadow-soft"
-            : "bg-cream/90 backdrop-blur-sm py-4 sm:py-5 border-b border-primary/10"
+            : "bg-cream/95 backdrop-blur-sm py-4 sm:py-5 border-b border-primary/10"
         )}
       >
         <div className="container-custom flex items-center justify-between">
@@ -116,7 +117,7 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop Navigation Links */}
           <nav
-            className="hidden lg:flex items-center gap-1 xl:gap-2 bg-white/70 px-3 py-1.5 rounded-full border border-primary/15 shadow-sm"
+            className="hidden lg:flex items-center gap-1 xl:gap-2 bg-white/80 px-3 py-1.5 rounded-full border border-primary/15 shadow-sm"
             aria-label="Navigasi Utama"
           >
             {NAV_ITEMS.map((item) => {
@@ -129,9 +130,9 @@ export const Navbar: React.FC = () => {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={cn(
-                    "px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-heading font-medium transition-all duration-200",
+                    "px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-heading font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                     isActive
-                      ? "bg-primary text-white shadow-sm"
+                      ? "bg-primary text-white shadow-sm font-semibold"
                       : "text-darkGreen-400 hover:text-darkGreen hover:bg-secondary/20"
                   )}
                   aria-current={isActive ? "page" : undefined}
@@ -150,7 +151,7 @@ export const Navbar: React.FC = () => {
               size="sm"
               iconRight={<ArrowRight className="w-4 h-4" />}
               onClick={(e) => handleNavClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#stages")}
-              className="shadow-soft hover:shadow-soft-md"
+              className="shadow-soft hover:shadow-soft-md font-heading font-semibold"
             >
               Jelajahi Panduan
             </Button>
@@ -181,7 +182,7 @@ export const Navbar: React.FC = () => {
       >
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-darkGreen/40 backdrop-blur-sm transition-opacity"
+          className="absolute inset-0 bg-darkGreen/50 backdrop-blur-sm transition-opacity"
           onClick={() => setMobileMenuOpen(false)}
         />
 
@@ -209,9 +210,10 @@ export const Navbar: React.FC = () => {
                   className={cn(
                     "flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-heading font-medium transition-all duration-200",
                     isActive
-                      ? "bg-primary text-white shadow-soft"
+                      ? "bg-primary text-white shadow-soft font-semibold"
                       : "text-darkGreen hover:bg-white hover:text-primary border border-transparent hover:border-primary/10"
                   )}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   <span className={cn(isActive ? "text-white" : "text-primary")}>
                     {item.icon}
@@ -229,6 +231,7 @@ export const Navbar: React.FC = () => {
                 fullWidth
                 iconRight={<ArrowRight className="w-4 h-4" />}
                 onClick={(e) => handleNavClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#stages")}
+                className="font-heading font-semibold"
               >
                 Jelajahi Panduan Lengkap
               </Button>
@@ -248,4 +251,3 @@ export const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-

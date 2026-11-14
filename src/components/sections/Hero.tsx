@@ -19,21 +19,26 @@ export const Hero: React.FC = () => {
     e.preventDefault();
     const element = document.getElementById(targetId);
     if (element) {
-      const navOffset = 84;
+      const header = document.querySelector("header");
+      const navOffset = (header ? header.offsetHeight : 84) + 10;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
       window.scrollTo({
-        top: offsetPosition,
+        top: Math.max(0, offsetPosition),
         behavior: "smooth",
       });
+
+      if (window.location.hash !== `#${targetId}`) {
+        window.history.pushState(null, "", `#${targetId}`);
+      }
     }
   };
 
   return (
     <section
       id="home"
-      className="relative pt-6 pb-16 sm:pt-10 sm:pb-24 lg:pt-14 lg:pb-28 overflow-hidden bg-gradient-to-b from-cream via-cream to-cream-100"
+      className="relative pt-6 pb-16 sm:pt-10 sm:pb-24 lg:pt-14 lg:pb-28 overflow-hidden bg-gradient-to-b from-cream via-cream to-cream-100 scroll-mt-24"
     >
       {/* Decorative ambient background orbs */}
       <div 

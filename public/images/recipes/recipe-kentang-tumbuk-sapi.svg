@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-kentang-tumbuk-sapi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF6F0"/>
+      <stop offset="100%" stop-color="#EFE8DA"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-kentang-tumbuk-sapi)"/>
+  <circle cx="45" cy="40" r="65" fill="#E8B88D" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Shadow -->
+      <ellipse cx="200" cy="180" rx="85" ry="18" fill="#52765B" opacity="0.12"/>
+      <!-- Bowl -->
+      <path d="M125 115 C125 175, 275 175, 275 115 Z" fill="#FFFFFF" stroke="#52765B" stroke-width="4"/>
+      <ellipse cx="200" cy="115" rx="75" ry="24" fill="#FAF7F1" stroke="#52765B" stroke-width="3"/>
+      <!-- Mashed Potato swirl -->
+      <circle cx="180" cy="112" r="24" fill="#F4EFE2"/>
+      <circle cx="220" cy="112" r="24" fill="#F4EFE2"/>
+      <circle cx="200" cy="98" r="22" fill="#EDE5CF"/>
+      <!-- Butter pat melting -->
+      <rect x="193" y="93" width="14" height="14" rx="3" fill="#F2D06B" stroke="#D99965" stroke-width="1.5"/>
+      <!-- Beef mince dots -->
+      <circle cx="175" cy="120" r="4" fill="#7B461D"/>
+      <circle cx="188" cy="125" r="3.5" fill="#7B461D"/>
+      <circle cx="212" cy="122" r="4" fill="#7B461D"/>
+      <circle cx="225" cy="118" r="3.5" fill="#7B461D"/>
+      <circle cx="198" cy="115" r="3.5" fill="#7B461D"/>
+      <!-- Broccoli sprinkle -->
+      <circle cx="168" cy="112" r="3" fill="#52765B"/>
+      <circle cx="232" cy="110" r="3" fill="#52765B"/>
+      <!-- Foot -->
+      <path d="M165 168 L235 168 L230 178 L170 178 Z" fill="#52765B"/>
+  </g>
+</svg>

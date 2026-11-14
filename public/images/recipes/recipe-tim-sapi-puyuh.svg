@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-tim-sapi-puyuh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9F6F0"/>
+      <stop offset="100%" stop-color="#EBE3D3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-tim-sapi-puyuh)"/>
+  <circle cx="45" cy="40" r="65" fill="#E8B88D" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Steam -->
+      <path d="M195 55 Q205 40 195 25" stroke="#A9C4A8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <!-- Shadow -->
+      <ellipse cx="200" cy="180" rx="90" ry="18" fill="#52765B" opacity="0.12"/>
+      <!-- Bowl -->
+      <path d="M125 115 C125 175, 275 175, 275 115 Z" fill="#FFFFFF" stroke="#52765B" stroke-width="4"/>
+      <ellipse cx="200" cy="115" rx="75" ry="22" fill="#FAF7F1" stroke="#52765B" stroke-width="3"/>
+      <!-- Tim Rice Base -->
+      <ellipse cx="200" cy="114" rx="66" ry="16" fill="#F4EFE2"/>
+      <!-- Beef Mince Bits -->
+      <circle cx="165" cy="112" r="4" fill="#7B461D"/>
+      <circle cx="178" cy="118" r="3.5" fill="#7B461D"/>
+      <circle cx="225" cy="115" r="4" fill="#7B461D"/>
+      <circle cx="236" cy="112" r="3.5" fill="#7B461D"/>
+      <!-- 2 Halved Quail Eggs -->
+      <!-- Egg Left -->
+      <ellipse cx="185" cy="108" rx="16" ry="12" fill="#FFFFFF" stroke="#52765B" stroke-width="2"/>
+      <circle cx="185" cy="108" r="7" fill="#F2D06B" stroke="#D99965" stroke-width="1.5"/>
+      <!-- Egg Right -->
+      <ellipse cx="215" cy="108" rx="16" ry="12" fill="#FFFFFF" stroke="#52765B" stroke-width="2"/>
+      <circle cx="215" cy="108" r="7" fill="#F2D06B" stroke="#D99965" stroke-width="1.5"/>
+      <!-- Foot -->
+      <path d="M165 168 L235 168 L230 178 L170 178 Z" fill="#52765B"/>
+  </g>
+</svg>

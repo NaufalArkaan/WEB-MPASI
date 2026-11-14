@@ -3,37 +3,31 @@
 import React from "react";
 import { 
   Baby, 
-  ArrowUp, 
   ShieldAlert, 
-  ExternalLink, 
-  Heart, 
-  BookOpen, 
-  ChevronRight,
+  ChevronRight, 
   ShieldCheck
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import BackToTop from "@/components/ui/BackToTop";
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
-      const navOffset = 84;
+      const header = document.querySelector("header");
+      const navOffset = (header ? header.offsetHeight : 84) + 10;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
       window.scrollTo({
-        top: offsetPosition,
+        top: Math.max(0, offsetPosition),
         behavior: "smooth",
       });
+
+      if (window.location.hash !== href) {
+        window.history.pushState(null, "", href);
+      }
     }
   };
 
@@ -86,7 +80,7 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links Column (Col 6-8) */}
           <div className="lg:col-span-3">
-            <h4 className="font-heading font-bold text-base text-white tracking-wide uppercase text-xs mb-4 text-secondary">
+            <h4 className="font-heading font-bold tracking-wide uppercase text-xs mb-4 text-secondary">
               Navigasi Halaman
             </h4>
             <ul className="space-y-2.5 text-sm font-body">
@@ -155,7 +149,7 @@ export const Footer: React.FC = () => {
 
           {/* References & Health Basis Column (Col 9-12) */}
           <div className="lg:col-span-4">
-            <h4 className="font-heading font-bold text-base text-white tracking-wide uppercase text-xs mb-4 text-secondary">
+            <h4 className="font-heading font-bold tracking-wide uppercase text-xs mb-4 text-secondary">
               Landasan & Referensi Resmi
             </h4>
             <div className="space-y-3 text-xs text-cream-300 font-body">
@@ -203,31 +197,16 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Back to Top */}
+        {/* Bottom Bar: Copyright */}
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-300 font-body">
           <div className="flex items-center gap-2 text-center sm:text-left">
             <span>© {new Date().getFullYear()} MPASI SMART. Hak Cipta Dilindungi Undang-Undang.</span>
           </div>
-
-          <div className="flex items-center gap-4">
-            <span className="text-[11px] text-secondary">
-              Arkaan • Frontend & UI/UX Design System
-            </span>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-primary text-white transition-all text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              aria-label="Kembali ke bagian atas halaman"
-            >
-              <span>Atas</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
         </div>
       </div>
+      <BackToTop threshold={300} />
     </footer>
   );
 };
 
 export default Footer;
-

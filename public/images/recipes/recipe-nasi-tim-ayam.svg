@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-recipe-nasi-tim-ayam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAF8"/>
+      <stop offset="100%" stop-color="#E3EFE4"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" rx="20" fill="url(#bg-recipe-nasi-tim-ayam)"/>
+  <circle cx="45" cy="40" r="65" fill="#E8B88D" opacity="0.18"/>
+  <circle cx="355" cy="180" r="80" fill="#52765B" opacity="0.08"/>
+  <g id="illustration">
+    <!-- Steam -->
+      <path d="M185 55 Q195 40 185 25" stroke="#A9C4A8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <path d="M205 50 Q215 35 205 20" stroke="#A9C4A8" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+      <!-- Plate & Tim Ceramic Bowl -->
+      <ellipse cx="200" cy="180" rx="90" ry="18" fill="#52765B" opacity="0.12"/>
+      <path d="M130 115 C130 175, 270 175, 270 115 Z" fill="#FFFFFF" stroke="#52765B" stroke-width="4"/>
+      <ellipse cx="200" cy="115" rx="70" ry="22" fill="#F7FAF7" stroke="#52765B" stroke-width="3"/>
+      <!-- Soft Tim Rice Texture -->
+      <ellipse cx="200" cy="114" rx="64" ry="17" fill="#EFF5EF"/>
+      <!-- Chicken dice -->
+      <rect x="170" y="105" width="12" height="10" rx="2" fill="#E8B88D" stroke="#D99965" stroke-width="1"/>
+      <rect x="215" y="106" width="12" height="10" rx="2" fill="#E8B88D" stroke="#D99965" stroke-width="1"/>
+      <!-- Carrot cubes -->
+      <rect x="195" y="103" width="9" height="9" rx="2" fill="#D99965"/>
+      <rect x="180" y="114" width="9" height="9" rx="2" fill="#D99965"/>
+      <rect x="210" y="115" width="9" height="9" rx="2" fill="#D99965"/>
+      <!-- Tofu cubes -->
+      <rect x="190" y="112" width="11" height="9" rx="2" fill="#FFFFFF" stroke="#C7DACB" stroke-width="1"/>
+      <!-- Scallion sprig -->
+      <circle cx="160" cy="112" r="3" fill="#52765B"/>
+      <circle cx="235" cy="112" r="3" fill="#52765B"/>
+      <path d="M165 168 L235 168 L230 178 L170 178 Z" fill="#52765B"/>
+  </g>
+</svg>

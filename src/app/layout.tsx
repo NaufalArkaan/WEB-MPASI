@@ -1,20 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -24,9 +9,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "MPASI SMART | Panduan MPASI untuk Si Kecil.",
+  title: "MPASI SMART | Panduan MPASI untuk Si Kecil",
   description:
-    "Platform edukasi dan panduan MPASI berdasarkan referensi kesehatan terpercaya.",
+    "Platform edukasi dan panduan MPASI terpercaya berdasarkan standar WHO (2023) dan Buku KIA Kemenkes RI (2024).",
   keywords: [
     "MPASI",
     "MPASI SMART",
@@ -50,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${poppins.variable} ${inter.variable} scroll-smooth`}>
+    <html lang="id" className="scroll-smooth">
       <body className="bg-cream text-darkGreen font-body antialiased selection:bg-secondary selection:text-darkGreen min-h-screen flex flex-col overflow-x-hidden">
         {children}
       </body>

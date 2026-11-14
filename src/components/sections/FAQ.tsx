@@ -24,7 +24,7 @@ export const FAQ: React.FC = () => {
     <section
       id="faq"
       aria-label="Pertanyaan yang Sering Diajukan"
-      className="border-t border-primary/10 bg-cream/70 py-16 sm:py-24"
+      className="border-t border-primary/10 bg-cream/70 py-16 sm:py-24 scroll-mt-24"
     >
       <div className="container-custom">
         <SectionHeading
