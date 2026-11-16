@@ -4,8 +4,7 @@ import React from "react";
 import { 
   Baby, 
   ShieldAlert, 
-  ChevronRight, 
-  ShieldCheck
+  ChevronRight 
 } from "lucide-react";
 import BackToTop from "@/components/ui/BackToTop";
 
@@ -66,16 +65,6 @@ export const Footer: React.FC = () => {
             <p className="mt-5 text-sm text-cream-300 font-body leading-relaxed max-w-md">
               MPASI SMART adalah platform edukasi kesehatan terpercaya untuk orang tua dan pengasuh dalam mendampingi masa MPASI bayi usia 6–23 bulan. Berkomitmen mendukung pemenuhan nutrisi optimal pada 1000 Hari Pertama Kehidupan (HPK) guna mencegah stunting di Indonesia.
             </p>
-
-            <div className="mt-6 flex items-center gap-3 text-xs text-secondary-300 font-body">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-                <ShieldCheck className="w-3.5 h-3.5 text-secondary" />
-                Frontend-Only Architecture
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-                Next.js 14 • Tailwind CSS
-              </span>
-            </div>
           </div>
 
           {/* Quick Links Column (Col 6-8) */}
